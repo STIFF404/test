@@ -11,6 +11,8 @@ $error = '';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
+    
+    var_dump($username, $password); // Tambahkan ini untuk debugging
 
     // Ganti dengan logika autentikasi yang lebih aman (misalnya, cek database)
     if ($username == 'admin' && $password == 'admin123') {
@@ -38,4 +40,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </form>
 </body>
 </html>
+
 
