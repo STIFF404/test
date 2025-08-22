@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
 
     // Ganti dengan logika autentikasi yang lebih aman (misalnya, cek database)
-    if ($username == 'admin' && $password == 'password') {
+    if ($username == 'admin' && $password == 'admin123') {
         $_SESSION['username'] = $username;
         header("Location: admin.php");
         exit();
@@ -38,3 +38,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </form>
 </body>
 </html>
+
