@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulir Absensi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+        }
+        .form-group {
+            margin-bottom: 10px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #3e8e41;
+        }
+        .login-link {
+            margin-top: 20px;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Formulir Absensi</h2>
+        <form id="absensiForm" action="simpan.php" method="POST" onsubmit="return validateForm()">
+            <div class="form-group">
+                <label for="nama">Nama:</label>
+                <input type="text" id="nama" name="nama" required>
+                <span id="namaError" class="error"></span>
+            </div>
+            <div class="form-group">
+                <label for="nomor">Nomor:</label>
+                <input type="text" id="nomor" name="nomor" required>
+                <span id="nomorError" class="error"></span>
+            </div>
+            <div class="form-group">
+                <label for="tautan">Tautan:</label>
+                <input type="url" id="tautan" name="link" required>
+                <span id="linkError" class="error"></span>
+            </div>
+            <button type="submit">Kirim</button>
+        </form>
+
+        <div class="login-link">
+            <a href="login.php">Login Admin</a>
+        </div>
+    </div>
+
+    <script>
+        function validateForm() {
+            let nama = document.getElementById("nama").value;
+            let nomor = document.getElementById("nomor").value;
+            let link = document.getElementById("tautan").value;
+            let namaError = document.getElementById("namaError");
+            let nomorError = document.getElementById("nomorError");
+            let linkError = document.getElementById("linkError");
+
+            namaError.textContent = "";
+            nomorError.textContent = "";
+            linkError.textContent = "";
+
+            if (nama == "") {
+                namaError.textContent = "Nama harus diisi";
+                return false;
+            }
+            if (nomor == "") {
+                nomorError.textContent = "Nomor harus diisi";
+                return false;
+            }
+            if (link == "") {
+                linkError.textContent = "Tautan harus diisi";
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>
