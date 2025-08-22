@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Data Absensi</title>
+  <style>
+    table {
+      width: 80%;
+      margin: 20px auto;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <h2>Data Absensi</h2>
+  <table id="dataAbsensi">
+    <thead>
+      <tr>
+        <th>No.</th>
+        <th>Nama</th>
+        <th>Nomor</th>
+        <th>Link</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+
+  <script>
+    function getParameterByName(name, url = window.location.href) {
+      name = name.replace(/[\[\]]/g, '\\$&');
+      var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+          results = regex.exec(url);
+      if (!results) return null;
+      if (!results[2]) return '';
+      return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+
+    var nama = getParameterByName('nama');
+    var nomor = getParameterByName('nomor');
+    var link = getParameterByName('link');
+
+    var table = document.getElementById('dataAbsensi').getElementsByTagName('tbody')[0];
+    var newRow = table.insertRow(table.rows.length);
+
+    var cell0 = newRow.insertCell(0); // Kolom nomor urut
+    var cell1 = newRow.insertCell(1);
+    var cell2 = newRow.insertCell(2);
+    var cell3 = newRow.insertCell(3);
+
+    cell0.innerHTML = table.rows.length; // Mengisi nomor urut
+    cell1.innerHTML = nama;
+    cell2.innerHTML = nomor;
+    cell3.innerHTML = link;
+  </script>
+</body>
+</html>
